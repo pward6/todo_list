@@ -1,0 +1,13 @@
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+todo_list/db.sqlite3
+media
+
+/todo_list/todo_list/settings.py
+
+# Environments 
+venv/ 
+
