@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create New Task</title>
+</head>
+<body>
+    <h1>Create New Task</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- Renders the form fields as paragraph elements -->
+        <form method="get" action="{% url 'new_task' %}" style="display:inline;">
+            <button type="submit" class="button">New Task</button>
+        </form>
+    </form>
+    <br>
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

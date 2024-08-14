@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    {% for item in latest_item_list %}
+        <p>
+            {{item.task}}
+        </p>
+        <li>
+            <a href="/{{ item.id }}/">View More</a></li>
+        </li>
+    {% endfor %}
+
+    <a href="{% url 'new_task' %}">Create New Task</a>
+    <br>
+    <a href="{% url 'logout' %}?next=/accounts/signin">Logout</a>
+
+    </form>
+</body>
+</html>

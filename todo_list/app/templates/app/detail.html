@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Item Detail</title>
+</head>
+<body>
+    <h1>Item Detail</h1>
+    <p>Task: {{ item.task }}</p>
+    <p>Date: {{ item.pub_date }}</p>
+    <p>Completed: {{ item.completed }}</p>
+    <p>Notes: {{ item.notes }}</p>
+
+    <form method="get" action="{% url 'edit_task' item.id %}" style="display:inline;">
+        <button type="submit" class="button">Edit Task</button>
+    </form>
+
+    <!-- Link to delete the task -->
+    <form method="post" action="{% url 'delete_task' item.id %}" onclick="return confirm('Are you sure you want to delete this task?');">
+        {% csrf_token %}
+        <button type="submit">Delete Task</button>
+    </form>
+    <br>
+    <!-- Link back to Home -->
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>
