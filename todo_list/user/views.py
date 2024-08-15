@@ -29,7 +29,3 @@ def signin(request):
 def logout(request):
     logout(request)
     return redirect('signin')
-
-@login_required
-def user_profile(request):
-    return render(request, 'user/profile.html')
