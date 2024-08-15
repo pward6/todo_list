@@ -63,4 +63,7 @@ def edit_task(request, item_id):
     
     return render(request, 'app/edit.html', {'form': form, 'item': item})
 
-    
+@login_required(login_url=LOGIN_URL)
+def completed_tasks(request):
+    completed_tasks = Item.objects.filter(user=request.user, completed=True)
+    return render(request, 'app/completed.html', context={"completed_jobs": completed_tasks})

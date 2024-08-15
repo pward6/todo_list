@@ -8,6 +8,8 @@ class Item(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='items')
     notes = models.CharField(max_length=1000, null=True, blank=True)
+    goal = models.DateTimeField(null=True)
+
 
     def __str__(self):
         return self.task

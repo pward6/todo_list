@@ -8,13 +8,15 @@
     {% for item in latest_item_list %}
         <p>
             {{item.task}}
+            <li>
+                <a href="/{{ item.id }}/">View More</a></li>
+            </li>
         </p>
-        <li>
-            <a href="/{{ item.id }}/">View More</a></li>
-        </li>
     {% endfor %}
 
     <a href="{% url 'new_task' %}">Create New Task</a>
+    <br>
+    <a href ="{% url 'completed_tasks' %}">View completed Tasks</a>
     <br>
     <a href="{% url 'logout' %}?next=/accounts/signin">Logout</a>
 

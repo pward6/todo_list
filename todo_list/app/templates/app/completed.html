@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Completed Jobs</h1>
+    {% if completed_jobs %}
+        <h2>Good job!!!</h2>
+        {% for job in completed_jobs %}
+            <p>
+                {{job.task}}
+                <br>
+                Started: {{job.pub_date}}
+            </p>
+        {% endfor %}
+    {% else %}
+            <p>No completed jobs...sorry</p>
+    {% endif %}
+
+    <a href="{% url 'home' %}">Go back</a>
+
+    </form>
+</body>
+</html>

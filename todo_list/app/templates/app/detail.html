@@ -9,6 +9,7 @@
     <p>Date: {{ item.pub_date }}</p>
     <p>Completed: {{ item.completed }}</p>
     <p>Notes: {{ item.notes }}</p>
+    <p>Goal: {{ item.goal }}</p>
 
     <form method="get" action="{% url 'edit_task' item.id %}" style="display:inline;">
         <button type="submit" class="button">Edit Task</button>
