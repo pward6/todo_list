@@ -10,9 +10,10 @@ LOGIN_URL = '/accounts/signin'
 # Create your views here.
 @login_required(login_url=LOGIN_URL)
 def home(request):
-    latest_item_list = Item.objects.order_by("-pub_date")
+    latest_item_list = Item.objects.filter(user=request.user).order_by("-pub_date")
     context = {"latest_item_list": latest_item_list}
     return render(request, "app/home.html", context)
+
 
 @login_required(login_url=LOGIN_URL)
 def new_task(request):
@@ -29,7 +30,7 @@ def new_task(request):
 
 @login_required(login_url=LOGIN_URL)
 def detail(request, item_id):
-    item = get_object_or_404(Item, pk=item_id)
+    item = get_object_or_404(Item, pk=item_id, user=request.user)
     context = {
         'item': item
     }
@@ -39,13 +40,13 @@ def detail(request, item_id):
 @login_required(login_url=LOGIN_URL)
 def delete_task(request, item_id):
     if request.method == 'POST':
-        item = get_object_or_404(Item, pk=item_id)
+        item = get_object_or_404(Item, pk=item_id, user=request.user)
         item.delete()
     return redirect('home')
 
 @login_required(login_url=LOGIN_URL)
 def edit_task(request, item_id):
-    item = get_object_or_404(Item, pk=item_id)
+    item = get_object_or_404(Item, pk=item_id, user=request.user)
     
     if request.method == 'POST':
         form = ItemForm(request.POST, instance=item)
