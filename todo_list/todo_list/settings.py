@@ -135,3 +135,6 @@ if 'DATABASE_URL' in os.environ:
         conn_max_age=500,
         conn_health_checks=True,
     )
+
+ALLOWED_HOSTS = ['pward.pythonanywhere.com', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://pward.pythonanywhere.com']
