@@ -6,7 +6,7 @@ __pycache__
 todo_list/db.sqlite3
 media
 
-/todo_list/todo_list/settings.py
+/todo_list/todo_list/.env
 
 # Environments 
 venv/ 
